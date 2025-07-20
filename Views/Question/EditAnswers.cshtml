@@ -1,0 +1,36 @@
+﻿@model BeQuiz.Models.ViewModels.EditAnswersViewModel
+
+@{
+    ViewData["Title"] = "Edit Answers";
+}
+
+<h2>Edit Answers for Question:</h2>
+<h4>@Model.QuestionContent</h4>
+
+<form asp-action="EditAnswers" method="post">
+    <input type="hidden" asp-for="QuestionId" />
+
+    @for (int i = 0; i < Model.Answers.Count; i++)
+    {
+        <div class="form-group">
+            <label>Answer @i</label>
+            <input type="hidden" name="Answers[@i].AnswerId" value="@Model.Answers[i].AnswerId" />
+            <input name="Answers[@i].Content" value="@Model.Answers[i].Content" class="form-control" />
+        </div>
+    }
+
+    <div class="form-group mt-3">
+        <label>Correct Answer</label>
+        <select asp-for="CorrectAnswerId" class="form-control">
+            @foreach (var answer in Model.Answers)
+            {
+                <option value="@answer.AnswerId" @(answer.AnswerId == Model.CorrectAnswerId ? "selected" : "")>
+                    @answer.Content
+                </option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+    <a asp-controller="Quiz" asp-action="Details" asp-route-id="@Model.QuestionId" class="btn btn-secondary mt-2">Cancel</a>
+</form>

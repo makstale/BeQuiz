@@ -1,0 +1,19 @@
+﻿@model BeQuiz.ViewModels.QuizStatisticsViewModel
+
+<h2>Statistics for quiz: @Model.QuizTitle</h2>
+
+<p><strong>Total attempts:</strong> @Model.TotalAttempts</p>
+<p><strong>Average score:</strong> @Model.AverageScore</p>
+
+@foreach (var q in Model.QuestionStats)
+{
+    <div class="mb-4">
+        <h4>@q.QuestionContent</h4>
+        <ul>
+            @foreach (var a in q.Answers)
+            {
+                <li>@a.AnswerContent – <strong>@Math.Round(a.SelectedPercentage, 2)%</strong></li>
+            }
+        </ul>
+    </div>
+}

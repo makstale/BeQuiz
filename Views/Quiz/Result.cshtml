@@ -1,0 +1,7 @@
+﻿@model BeQuiz.Models.QuizResult
+
+<h2>Your result for quiz: @Model.Quiz.Title</h2>
+<p>Total Score: <strong>@Model.TotalScore</strong></p>
+<p>Completed at: @Model.CompletedAt.ToLocalTime()</p>
+
+<a asp-action="Index" class="btn btn-primary">Back to quizzes</a>

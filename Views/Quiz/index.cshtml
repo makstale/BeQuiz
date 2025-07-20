@@ -1,0 +1,29 @@
+﻿@model IEnumerable<BeQuiz.Models.Quiz>
+
+@{
+    ViewData["Title"] = "All Quizzes";
+}
+
+<h2>All Quizzes</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Creator</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var quiz in Model)
+        {
+            <tr>
+                <td>@quiz.Title</td>
+                <td>@quiz.Creator?.UserName</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@quiz.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,22 @@
+﻿@model BeQuiz.Models.ViewModels.CreateAnswerViewModel
+
+<h2>Add Answers</h2>
+
+<form asp-action="CreateAnswer" method="post">
+    <input type="hidden" asp-for="QuestionId" />
+
+    @for (int i = 0; i < 4; i++)
+    {
+        <div class="form-group">
+            <label>Answer @i:</label>
+            <input name="Answers[@i].Content" class="form-control" />
+        </div>
+    }
+
+    <div class="form-group">
+        <label>Correct Answer (index 0-3):</label>
+        <input asp-for="CorrectAnswerIndex" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
