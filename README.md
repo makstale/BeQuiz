@@ -1,6 +1,21 @@
 BeQuiz project - Programowanie Zaawansowane
 
-BeQuiz to aplikacja webowa do tworzenia, edytowania i rozwi箊ywania quiz體.
+BeQuiz to aplikacja webowa do tworzenia, edytowania i rozwi膮zywania quiz贸w.
+
+Zawarto艣膰 dokumentacji
+- Instrukcja uruchomienia
+- Opis funcjonalnosci
+- Struktura projektu
+- System u偶ytkownik贸w i kontrola dost臋pu
+- Technologie u偶yte w projekcie
+
+Instrukcja uruchomienia
+- Sklonuj projekt
+git clone https://github.com/makstale/BeQuiz.git
+cd BeQuiz
+dotnet ef database update
+dotnet run
+Otworz w przegl膮darce localhost'a po porcie w kt贸rym projekt sie zahostowa艂 (np. https://localhost:5001)
 
 Technologie
 - ASP.NET 8.0
@@ -12,8 +27,32 @@ Model
 
 Funkcje
 - Rejestracja i logowanie
-- Tworzenie quiz體 z pytaniami jednokrotnego wyboru
-- Punktacja dla ka縟ego pytania
-- Rozwi箊ywanie quiz體
-- Zapis wynik體 i statystyki
-- Ochrona dost阷u: u縴tkownik widzi tylko swoje dane
+- Tworzenie quiz贸w z pytaniami jednokrotnego wyboru
+- Punktacja dla ka偶dego pytania
+- Rozwi膮zywanie quiz贸w
+- Zapis wynik贸w i statystyki
+- Ochrona dost臋pu: u偶ytkownik widzi tylko swoje dane
+- Mo偶liwo艣膰 tworzenia quiz贸w z:
+tytu艂em
+opisem
+dowoln膮 liczb膮 pyta艅 jednokrotnego wyboru
+
+Pytania zawieraj膮:
+- tre艣膰
+- punktacj臋
+- zestaw odpowiedzi (minimum 2, domy艣lnie 4)
+- oznaczenie odpowiedzi jako poprawnej
+
+Rozwi膮zywanie quiz贸w
+- Ka偶dy zalogowany u偶ytkownik mo偶e wype艂nia膰 quizy stworzone przez innych
+- Po wype艂nieniu wynik jest zapisywany i wy艣wietlany
+- Przechowywane dane: wybrane odpowiedzi, wynik punktowy, czas wype艂nienia
+
+Statystyki quizu (dost臋pne tylko dla autora)
+- Liczba u偶ytkownik贸w, kt贸rzy wype艂nili quiz
+- 艢redni wynik
+- Dla ka偶dego pytania: procentowy wyb贸r ka偶dej odpowiedzi
+
+Edycja i usuwanie
+- Mo偶liwo艣膰 edycji quiz贸w, pyta艅 i odpowiedzi
+- Usuwanie quiz贸w i ich sk艂adnik贸w mo偶liwe tylko dla w艂a艣ciciela
